@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SEKA Online</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>SEKA Online</h1>
+        <p>Минимальный клиент для проверки WebSocket-сервера.</p>
+      </header>
+      <section class="panel table-panel">
+        <div class="table-surface">
+          <div class="pot">
+            <div class="pot-label">Банк</div>
+            <div id="potAmount" class="pot-value">0</div>
+          </div>
+          <div id="tableSeats" class="seats"></div>
+        </div>
+        <div class="action-panel">
+          <div class="action-info">
+            <div class="field">
+              <label>Имя игрока</label>
+              <input id="playerName" type="text" value="Player" />
+            </div>
+            <div class="field">
+              <label>Таймер хода</label>
+              <div class="timer">
+                <div id="timerRing" class="timer-ring"></div>
+                <span id="timerValue">10s</span>
+              </div>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <button class="secondary" id="foldBtn">Fold</button>
+            <button class="secondary" id="callBtn">Call</button>
+            <button class="primary" id="raiseBtn">Raise</button>
+          </div>
+          <div class="raise-controls">
+            <input id="raiseSlider" type="range" min="10" max="200" value="20" />
+            <div class="raise-values">
+              <span>Raise</span>
+              <span id="raiseValue">20</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>Управление</h2>
+        <div class="buttons">
+          <button id="quickMatch">Быстрая игра</button>
+          <button id="createPrivate">Создать приватную</button>
+          <button id="startRoom">Старт комнаты</button>
+          <button id="loadDemo">Демо-расклад</button>
+        </div>
+        <div class="field inline">
+          <input id="roomCode" type="text" placeholder="Код комнаты" />
+          <button id="joinPrivate">Войти</button>
+        </div>
+        <div class="field inline">
+          <button id="createTournament">Создать турнир</button>
+          <button id="joinTournament">Войти в турнир</button>
+          <button id="advanceTournament">Следующий раунд</button>
+          <input id="tournamentId" type="text" placeholder="ID турнира" />
+        </div>
+      </section>
+      <section class="panel">
+        <h2>Турнир</h2>
+        <div id="tournamentMeta" class="meta"></div>
+        <div id="tournamentPlayers" class="list"></div>
+      </section>
+      <section class="panel">
+        <h2>Состояние</h2>
+        <pre id="status"></pre>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
